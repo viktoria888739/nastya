@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nastya</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <div class="screen1">
+        <div class="screen1_container_top">
+            <div class="stripe_black"></div>
+            <div class="stripe_blue"></div>
+            <h1>НАСТЯ НОСКОВА</h1>
+            <h2>ПЕРВОКУРСНИК 2025</h2>
+            <div class="stripe_blue"></div>
+            <div class="stripe_black"></div>
+        </div>
+
+        <div class="film_wrapper">
+            <div class="film_squares">
+            </div>
+            <div class="film_container" id="filmCont"></div>
+            <div class="film_squares"></div>
+
+        </div>
+    </div>
+    <div class="screen2">
+        <div class="screen2_container_top">
+            <img src="assets/images/big_nastya_photo.svg" alt="">
+            <div class="screen2_container_top_right">
+                <h3>Перед началом рассказа <br>о Насте попробуйте угадать, <br>какие факты относятся к ней, а какие нет
+                </h3>
+                <p>Тыкайте на факты, которые счиатете правдивыми</p>
+            </div>
+        </div>
+        <div class="screen2_container_bottom">
+            <div class="screen2_container_bottom_left">
+                <div class="facts_container" id="factsContainer">
+                </div>
+
+                <button class="check_button" id="checkButton">Проверить ответы</button>
+
+                <div class="result_area" id="resultArea">
+                </div>
+            </div>
+            <img src="assets/images/little_nastya_photo.svg" alt="">
+        </div>
+    </div>
+    <div class="screen3">
+        <div class="screen3_container_left">
+            <img src="assets/images/photoap.svg" alt="">
+            <div class="film_wrapper vertical-film">
+                <div class="film_squares"></div>
+                <div class="film_container" id="filmCont2"></div>
+                <div class="film_squares"></div>
+            </div>
+        </div>
+        <div class="screen3_container_right">
+            <div class="top_box">
+                <div class="top_box_container">
+                    <p>Настя родилась 25.12.2006</p>
+                </div>
+            </div>
+            <div class="bottom_box">
+                <p class="bottom_p">Нажмите, чтобы перевернуть карточку</p>
+                <div class="bottom_box_container" id="flipCard">
+                    <div class="card-front">
+                        <p>Настя крутая женщина, она профессионально занимается горными лыжами, состоит в сборной. Она
+                            моя соседка, мы с ней учимся 12 лет за одной партой.</p>
+                    </div>
+                    <div class="card-back" style="display: none;">
+                        <p class="card-text">Настя флегматик, ее сложно вывести на эмоции. Ее любимое животное - окапи.
+                            Ее любимая группа - NEON SHADOW</p>
+                        <div class="buttons">
+                            <button class="music-btn" data-playing="false">Послушать песню</button>
+                            <button class="image-btn">Посмотреть на окапи</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="screen4">
+        <div class="screen4_container_top">
+            <div class="screen4_container_top_left">
+                <h3>Интересный факт о насте!</h3>
+                <p>Настя не меняется с возрастом. Она перестала меняться в 5 классе.</p>
+            </div>
+            <div class="screen4_container_top_right">
+                <h3>Поймайте мини Настю!!</h3>
+                <p class="bottom_p">Успейте нажать на изображение насти </p>
+            </div>
+        </div>
+        <div class="screen4_container_bottom" id="gameArea">
+            <img src="assets/images/nastya_cool.svg" alt="Мини Настя" id="nastyaImage" class="nastya-image">
+            <div id="winMessage" class="win-message" style="display: none;">
+                <h2>Вы поймали Настю!</h2>
+                <button id="restartBtn">Играть снова</button>
+            </div>
+        </div>
+    </div>
+    <div class="screen5">
+        <h2>До свидания</h2>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

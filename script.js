@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     function createHoles() {
-        // Только для горизонтальных пленок (screen1)
         const horizontalContainers = document.querySelectorAll('.film_wrapper:not(.vertical-film) .film_squares');
         const screenWidth = window.innerWidth;
         const holeWidth = 15;
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Создаем отверстия для вертикальной пленки
         createVerticalHoles();
     }
 
@@ -71,11 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         verticalWrappers.forEach(wrapper => {
             const squares = wrapper.querySelectorAll('.film_squares');
-            const wrapperHeight = 700; // Высота из CSS
+            const wrapperHeight = 700; 
 
             squares.forEach(squareContainer => {
                 squareContainer.innerHTML = '';
-                // Создаем 15 отверстий (примерно)
                 for (let i = 0; i < 15; i++) {
                     const hole = document.createElement('div');
                     hole.className = 'film_square';
@@ -103,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
             card.textContent = fact.text;
 
             card.addEventListener('click', function () {
-                // При клике сразу показываем ответ
                 if (fact.isTrue) {
                     this.style.borderColor = 'green';
                     this.style.borderWidth = '3px';
@@ -120,11 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
             container.appendChild(card);
         });
 
-        // Убираем кнопку проверки, если она есть
         const checkBtn = document.getElementById('checkButton');
         if (checkBtn) checkBtn.style.display = 'none';
 
-        // Добавляем кнопку сброса
         const resetBtn = document.createElement('button');
         resetBtn.textContent = 'Сбросить игру';
         resetBtn.style.cssText = `
@@ -152,29 +146,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const flipCard = document.getElementById('flipCard');
         if (!flipCard) return;
 
-        // Находим элементы
         const cardFront = flipCard.querySelector('.card-front');
         const cardBack = flipCard.querySelector('.card-back');
         const musicBtn = flipCard.querySelector('.music-btn');
         const imageBtn = flipCard.querySelector('.image-btn');
         const hint = document.querySelector('.bottom_p');
 
-        // Функция переворота карточки
         flipCard.addEventListener('click', function (e) {
-            // Не переворачиваем если кликнули по кнопке
             if (e.target.classList.contains('music-btn') || e.target.classList.contains('image-btn')) {
                 return;
             }
 
             if (cardFront.style.display !== 'none') {
-                // Переворачиваем на обратную сторону
                 cardFront.style.display = 'none';
                 cardBack.style.display = 'flex';
                 flipCard.style.backgroundColor = 'white';
                 flipCard.style.color = '#010872';
                 hint.textContent = 'Нажмите на карточку или кнопки';
             } else {
-                // Возвращаем на лицевую сторону
                 cardFront.style.display = 'flex';
                 cardBack.style.display = 'none';
                 flipCard.style.color = 'white';
@@ -183,23 +172,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         const audio = new Audio();
 
-        // Можно использовать демо-ссылку или свою
         audio.src = 'assets/music/PARAGOR_-_Neon_Shadows_77823217.mp3';
         let isPlaying = false;
-        // Кнопка "Послушать песню"
         musicBtn.addEventListener('click', function (e) {
-            e.stopPropagation(); // Останавливаем всплытие
-
-            // Создаем аудио
-
-            // Пробуем воспроизвести
+            e.stopPropagation();
             if (isPlaying) {
-                // Останавливаем
                 audio.pause();
                 this.textContent = 'Включить песню';
                 isPlaying = false;
             } else {
-                // Включаем
                 audio.play()
                     .then(() => {
                         this.textContent = 'Остановить';
@@ -208,11 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Кнопка "Посмотреть на окапи"
         imageBtn.addEventListener('click', function (e) {
-            e.stopPropagation(); // Останавливаем всплытие
-
-            // Создаем окно с изображением
+            e.stopPropagation(); 
             const modal = document.createElement('div');
             modal.style.cssText = `
             position: fixed;
@@ -232,7 +210,6 @@ document.addEventListener('DOMContentLoaded', () => {
             max-height: 90%;
         `;
 
-            // Закрытие по клику
             modal.addEventListener('click', function () {
                 document.body.removeChild(modal);
             });
@@ -243,18 +220,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     function createRunningNastyaGame() {
         const gameArea = document.getElementById('gameArea');
-
-        // Проверяем, есть ли уже изображение
         const existingImage = gameArea.querySelector('.nastya-image');
         if (existingImage) {
-            existingImage.remove(); // Удаляем старое изображение если есть
+            existingImage.remove();
         }
-
         const nastyaImage = document.createElement('img');
         const nastyaImage2 = document.createElement('img');
         const nastyaImage3 = document.createElement('img');
 
-        // Настройка изображения
         nastyaImage.src = 'assets/images/mini_nastya.svg';
         nastyaImage.className = 'nastya-image';
         nastyaImage.alt = 'Мини Настя';
@@ -266,7 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
         nastyaImage3.src = 'assets/images/ira.svg';
         nastyaImage3.className = 'nastya-image';
         nastyaImage3.alt = 'Мини Ира';
-        // Устанавливаем position: absolute через JavaScript
         nastyaImage.style.position = 'absolute';
         nastyaImage2.style.position = 'absolute';
         nastyaImage3.style.position = 'absolute';
@@ -285,12 +257,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let y2 = 150;
         let dx2 = 10;
         let dy2 = 10;
-        
+
         let x3 = 200;
         let y3 = 200;
         let dx3 = 15;
         let dy3 = 15;
-        // Устанавливаем начальную позицию
         nastyaImage.style.left = x + 'px';
         nastyaImage.style.top = y + 'px';
 
@@ -299,7 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         nastyaImage3.style.left = x3 + 'px';
         nastyaImage3.style.top = y3 + 'px';
-        // Движение
         function move() {
             x += dx;
             y += dy;
@@ -309,7 +279,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             x3 += dx3;
             y3 += dy3;
-            // Отскок от стен
             if (x <= 0 || x >= 1300) dx = -dx;
             if (y <= 0 || y >= 500) dy = -dy;
 
@@ -330,23 +299,76 @@ document.addEventListener('DOMContentLoaded', () => {
 
             requestAnimationFrame(move);
         }
-
-        // Клик
         nastyaImage.addEventListener('click', function () {
             alert('ПОБЕДА! Вы поймали Настю!');
-            location.reload(); // Перезагрузка для новой игры
+            location.reload();
         });
         nastyaImage2.addEventListener('click', function () {
             alert('Это Лера! Вы не поймали Настю!');
-            location.reload(); // Перезагрузка для новой игры
+            location.reload();
         });
         nastyaImage3.addEventListener('click', function () {
             alert('Это Ира! Вы не поймали Настю!');
-            location.reload(); // Перезагрузка для новой игры
+            location.reload();
         });
 
         move();
     }
     createRunningNastyaGame();
     createSimpleFlipCard();
+    function createTurtleGame() {
+        const shrimpContainer = document.getElementById('shrimpsCont');
+        const turtle = document.querySelector('.turtle-image');
+
+        if (!shrimpContainer || !turtle) {
+            console.log('Элементы для игры с черепахой не найдены');
+            return;
+        }
+
+        shrimpContainer.innerHTML = '';
+
+        for (let i = 0; i < 6; i++) {
+            const shrimp = document.createElement('img');
+            shrimp.src = 'assets/images/shrimp.svg';
+            shrimp.className = 'shrimp';
+            shrimp.draggable = true;
+            shrimp.alt = `Креветка ${i + 1}`;
+            shrimp.style.position = 'static';
+
+            shrimp.style.margin = `${Math.random() * 20}px`;
+
+            shrimpContainer.appendChild(shrimp);
+
+            shrimp.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', 'shrimp');
+                shrimp.style.opacity = '1';
+            });
+
+            shrimp.addEventListener('dragend', () => {
+                shrimp.style.opacity = '1';
+            });
+        }
+
+        turtle.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        turtle.addEventListener('dragleave', () => {
+        });
+
+        turtle.addEventListener('drop', (e) => {
+            e.preventDefault();
+
+            const shrimps = document.querySelectorAll('.shrimp');
+            if (shrimps.length > 0) {
+                shrimps[0].remove();
+                if (document.querySelectorAll('.shrimp').length === 0) {
+                    alert('Спасибо! Вы накормили Настину черепаху!');
+                }
+            }
+        });
+        
+    }
+    createTurtleGame();
+
 });

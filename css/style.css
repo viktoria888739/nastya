@@ -347,34 +347,41 @@ h3 {
     background: white;
     color: #010872;
 }
-.screen4{
+
+.screen4 {
     display: flex;
     flex-direction: column;
     padding: 60px;
     gap: 30px;
-    
-    
+
+
 }
-.screen4_container_top{
+
+.screen4_container_top {
     display: flex;
     gap: 20px;
-    h3{
+
+    h3 {
         font-size: 60px;
     }
 }
-.screen4_container_top_left{
+
+.screen4_container_top_left {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    p{
+
+    p {
         font-size: 35px;
     }
 }
-.screen4_container_top_right{
+
+.screen4_container_top_right {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
+
 .screen4_container_bottom {
     display: flex;
     background-color: #010872;
@@ -385,6 +392,7 @@ h3 {
     overflow: hidden;
     cursor: pointer;
 }
+
 .nastya-image {
     position: absolute;
     width: 170px;
@@ -419,10 +427,62 @@ h3 {
     color: #010872;
     transform: translateY(-3px);
 }
-.screen5{
+
+.screen6 {
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: center;
     height: 100vh;
+}
+
+.screen5 {
+    display: flex;
+    padding: 40px;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.screen5_bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 15px solid #010872;
+}
+
+.shrimps {
+    display: flex;
+    width: 50%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.turtle {
+    width: 600px;
+    height: 600px;
+
+    img {
+        width: 600px;
+        height: 600px;
+    }
+}
+
+.shrimp {
+    width: 110px;
+    height: 130px;
+    cursor: grab;
+    transition: transform 0.2s;
+
+}
+.shrimp:hover {
+    transform: scale(1.1);
+}
+
+.shrimp:active {
+    cursor: grabbing;
+
 }

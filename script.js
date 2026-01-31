@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        createVerticalHoles();
+        verticalHoles();
     }
 
     createHoles();
     window.addEventListener('resize', createHoles);
-    createVerticalFilm();
+    verticalFilm();
 
-    function createFilm() {
+    function filmCards() {
         const cont = document.getElementById('filmCont');
         const photoSrc = 'assets/images/nastya_cool.svg';
         cont.innerHTML = '';
@@ -38,10 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
         cont.innerHTML += cont.innerHTML;
     }
 
-    createFilm();
+    filmCards();
     window.addEventListener('resize', createHoles);
 
-    function createVerticalFilm() {
+    function verticalFilm() {
         const cont = document.getElementById('filmCont2');
         if (!cont) return;
         const photos = [
@@ -61,10 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         cont.innerHTML += cont.innerHTML;
-        createVerticalHoles();
+        verticalHoles();
     }
 
-    function createVerticalHoles() {
+    function verticalHoles() {
         const verticalWrappers = document.querySelectorAll('.vertical-film');
 
         verticalWrappers.forEach(wrapper => {
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-    function createGame() {
+    function trueFalseGame() {
         const facts = [
             { text: "Настя гений", isTrue: true },
             { text: "Настя рычит в ярости", isTrue: false },
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         font-size: 18px;
     `;
 
-        resetBtn.addEventListener('click', createGame);
+        resetBtn.addEventListener('click', trueFalseGame);
 
         const resultArea = document.getElementById('resultArea');
         if (resultArea) {
@@ -141,8 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
             resultArea.appendChild(resetBtn);
         }
     }
-    createGame();
-    function createSimpleFlipCard() {
+    trueFalseGame();
+    function flipCard() {
         const flipCard = document.getElementById('flipCard');
         if (!flipCard) return;
 
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.appendChild(modal);
         });
     }
-    function createRunningNastyaGame() {
+    function nastyaGame() {
         const gameArea = document.getElementById('gameArea');
         const existingImage = gameArea.querySelector('.nastya-image');
         if (existingImage) {
@@ -314,9 +314,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         move();
     }
-    createRunningNastyaGame();
-    createSimpleFlipCard();
-    function createTurtleGame() {
+    nastyaGame();
+    flipCard();
+    function turtleGame() {
         const shrimpContainer = document.getElementById('shrimpsCont');
         const turtle = document.querySelector('.turtle-image');
 
@@ -369,6 +369,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
     }
-    createTurtleGame();
+    turtleGame();
 
-});
+});  
